@@ -21,9 +21,13 @@ public class GameController : MonoBehaviour
         return new Feature("Game")
             .Add(new InitializePlayerSystem(contexts))
             .Add(new InitializeInputSystem(contexts))
-           
+            .Add(new InitializeBall(contexts))
+            .Add(new InitializeGameArea(contexts))
+
             .Add(new ChangeDeltaTimeSystem(contexts))
-            
+            .Add(new ChangeAddForceSystem(contexts))
+            .Add(new ApplyForceToRigidbodySystem(contexts))
+
             .Add(new GetInputSystem(contexts))
             .Add(new MovePlayerSystem(contexts))
             .Add(new MoveSystem(contexts))
