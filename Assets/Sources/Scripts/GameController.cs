@@ -25,13 +25,26 @@ public class GameController : MonoBehaviour
             .Add(new InitializeGameArea(contexts))
 
             .Add(new ChangeDeltaTimeSystem(contexts))
+
+            .Add(new DetectCollisionSystem(contexts))
+
+            
             .Add(new BounceBallOfPlayerSystem(contexts))
-            .Add(new ApplyForceToRigidbodySystem(contexts))
+      //      .Add(new ApplyForceToRigidbodySystem(contexts))
 
             .Add(new GetInputSystem(contexts))
             .Add(new MovePlayerSystem(contexts))
             .Add(new MoveSystem(contexts))
-            .Add(new RenderPositionSystem(contexts));
+            .Add(new RenderPositionSystem(contexts))
+
+            .Add(new DestroyBlockOnHitSystem(contexts))
+            .Add(new ResetBallSystem(contexts))
+            .Add(new DestroyViewSystem(contexts))
+            .Add(new DestroyEntitySystem(contexts))
+                
+            
+            
+            ;
 
     }
     private void Update() => m_systems.Execute();

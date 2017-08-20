@@ -4,4 +4,5 @@ using Entitas.CodeGeneration.Attributes;
 public class InputComponent : IComponent
 {
     public float horizontalAxis;
+    public bool resetBall;
 }

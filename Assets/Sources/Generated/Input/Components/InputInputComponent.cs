@@ -12,22 +12,22 @@ public partial class InputContext {
     public InputComponent input { get { return inputEntity.input; } }
     public bool hasInput { get { return inputEntity != null; } }
 
-    public InputEntity SetInput(float newHorizontalAxis) {
+    public InputEntity SetInput(float newHorizontalAxis, bool newResetBall) {
         if (hasInput) {
             throw new Entitas.EntitasException("Could not set Input!\n" + this + " already has an entity with InputComponent!",
                 "You should check if the context already has a inputEntity before setting it or use context.ReplaceInput().");
         }
         var entity = CreateEntity();
-        entity.AddInput(newHorizontalAxis);
+        entity.AddInput(newHorizontalAxis, newResetBall);
         return entity;
     }
 
-    public void ReplaceInput(float newHorizontalAxis) {
+    public void ReplaceInput(float newHorizontalAxis, bool newResetBall) {
         var entity = inputEntity;
         if (entity == null) {
-            entity = SetInput(newHorizontalAxis);
+            entity = SetInput(newHorizontalAxis, newResetBall);
         } else {
-            entity.ReplaceInput(newHorizontalAxis);
+            entity.ReplaceInput(newHorizontalAxis, newResetBall);
         }
     }
 
@@ -49,17 +49,19 @@ public partial class InputEntity {
     public InputComponent input { get { return (InputComponent)GetComponent(InputComponentsLookup.Input); } }
     public bool hasInput { get { return HasComponent(InputComponentsLookup.Input); } }
 
-    public void AddInput(float newHorizontalAxis) {
+    public void AddInput(float newHorizontalAxis, bool newResetBall) {
         var index = InputComponentsLookup.Input;
         var component = CreateComponent<InputComponent>(index);
         component.horizontalAxis = newHorizontalAxis;
+        component.resetBall = newResetBall;
         AddComponent(index, component);
     }
 
-    public void ReplaceInput(float newHorizontalAxis) {
+    public void ReplaceInput(float newHorizontalAxis, bool newResetBall) {
         var index = InputComponentsLookup.Input;
         var component = CreateComponent<InputComponent>(index);
         component.horizontalAxis = newHorizontalAxis;
+        component.resetBall = newResetBall;
         ReplaceComponent(index, component);
     }
 

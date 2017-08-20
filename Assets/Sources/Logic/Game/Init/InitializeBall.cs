@@ -19,7 +19,7 @@ public class InitializeBall : IInitializeSystem
             //        g.transform.localScale = Vector3.one * m_contexts.game.globals.value.ballScale;
             g.tag = "Ball";
             var ent = m_contexts.game.CreateEntity();
-            ent.AddPosition(new Vector3(i, 4, 0));
+            ent.AddPosition(new Vector3(i, 2, 0));
             var rb = g.GetComponent<Rigidbody>();
           //  rb.angularDrag = .5f;
 
@@ -28,6 +28,7 @@ public class InitializeBall : IInitializeSystem
             ent.isCollidable = true;
             ent.isBall = true;
             ent.AddView(g);
+            ent.rigidbody.value.velocity = new Vector3(-1, -3f);
         }
     }
 }

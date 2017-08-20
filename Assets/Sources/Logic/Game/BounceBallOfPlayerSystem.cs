@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using static GameMatcher;
 using System.Linq;
+using UnityEngine;
+
 public class BounceBallOfPlayerSystem : ReactiveSystem<GameEntity>
 {
     private Contexts m_contexts;
@@ -19,24 +21,17 @@ public class BounceBallOfPlayerSystem : ReactiveSystem<GameEntity>
     {
         foreach (var ent in entities)
         {
-            ent.AddAddForce(m_contexts.game.playerDetails.value.upForce);
-            ent.isColliding = false;
-            ent.isCollidingWithPlayer = false;
-            //    ent.isCollidingWithPlayer = false;
+           var vel = ent.rigidbody.value.velocity;
+            var y = vel.y * 1.25f;
+            var x = vel.x * 1.25f;
+            ent.rigidbody.value.velocity = new Vector3(
+                Mathf.Clamp(x, -20f, 20f), 
+                Mathf.Clamp(y, -20f, 20f)
+                );
+         //   ent.AddAddForce(m_contexts.game.playerDetails.value.upForce);
+         //   ent.isColliding = false;
+         //   ent.isCollidingWithPlayer = false;
         }
-        //UnityEngine.Debug.Log($"Executing {nameof(ChangeAddForceSystem)}");
-        //var group = m_contexts.game.GetGroup(AllOf(View, Rigidbody, Collidable)).GetEntities().ToList();
-        //UnityEngine.Debug.Log(group.Count);
-        //foreach (var item in group)
-        //{
-        //    foreach (var entity in entities)
-        //    {
-        //        if (entity.collision.value.gameObject == item.view.value)
-        //        {
-        //            item.AddAddForce(m_contexts.game.playerDetails.value.upForce);
-        //        }
-        //    }
-        //}
     }
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {

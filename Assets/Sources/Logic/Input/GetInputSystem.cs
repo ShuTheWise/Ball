@@ -13,6 +13,7 @@ public class GetInputSystem : IExecuteSystem
 
     public void Execute()
     {
+        _contexts.input.input.resetBall = Input.GetKeyDown(KeyCode.Space);
         _contexts.input.input.horizontalAxis = Input.GetAxis("Horizontal");
     }
 }

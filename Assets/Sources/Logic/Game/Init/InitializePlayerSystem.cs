@@ -21,6 +21,6 @@ public class InitializePlayerSystem : IInitializeSystem
         entity.isCollidable = true;
         entity.AddCollider(g.GetComponent<Collider>());
         var cb = g.AddComponent<CollisionBehaviour>();
-        cb.ReferenceContexts(ref m_contexts, ref entity);
+        cb.LinkEntity(ref m_contexts, entity);
     }
 }

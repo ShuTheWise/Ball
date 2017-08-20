@@ -5,8 +5,13 @@ using Entitas;
 public class Globals : ScriptableObject
 {
     public GameObject ballPrefab;
+
     public Vector3 gameArea;
-    public Material frameMaterial;
+    public GameObject framePrefab;
     public float frameThickness;
-    public float gravity;
+
+    public GameObject blockPrefab;
+    public Vector3 blockScale;
+
+    public int numberOfRows;
 }

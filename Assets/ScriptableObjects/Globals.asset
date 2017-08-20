@@ -13,5 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 1850038916606136, guid: e62a5967569f99e459ff5db2645926eb, type: 2}
   gameArea: {x: 11, y: 6, z: 1}
-  frameMaterial: {fileID: 2100000, guid: dcc2083cddc59244798fd3df07889edd, type: 2}
+  framePrefab: {fileID: 1042506909046140, guid: bed35b9e7272f7c4198b722a18c107a4,
+    type: 2}
   frameThickness: 0.5
+  blockPrefab: {fileID: 1060751830702520, guid: 350c4a45388d39747a7d22705c943ebe,
+    type: 2}
+  blockScale: {x: 1, y: 1, z: 1}
+  numberOfRows: 2

@@ -11,6 +11,6 @@ public class InitializeInputSystem : IInitializeSystem
     public void Initialize()
     {
         UnityEngine.Debug.Log($"Starting a {nameof(InitializeInputSystem)}");
-        m_contexts.input.CreateEntity().AddInput(0);
+        m_contexts.input.CreateEntity().AddInput(0, false);
     }
 }
