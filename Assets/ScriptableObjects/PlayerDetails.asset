@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1203586469425668, guid: ebc874e7422ddb342b7c95c74914d8f5, type: 2}
   initialPosition: {x: 0, y: -3, z: 0}
-  maxInclination: 8
+  maxInclination: 9
   speed: 10
   upForce: {x: 0, y: 1000, z: 0}
