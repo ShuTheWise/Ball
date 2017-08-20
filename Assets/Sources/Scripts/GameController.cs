@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
             .Add(new InitializeGameArea(contexts))
 
             .Add(new ChangeDeltaTimeSystem(contexts))
-            .Add(new ChangeAddForceSystem(contexts))
+            .Add(new BounceBallOfPlayerSystem(contexts))
             .Add(new ApplyForceToRigidbodySystem(contexts))
 
             .Add(new GetInputSystem(contexts))

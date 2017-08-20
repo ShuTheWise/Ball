@@ -9,28 +9,32 @@
 public static class GameComponentsLookup {
 
     public const int AddForce = 0;
-    public const int Collidable = 1;
-    public const int Collider = 2;
-    public const int Colliding = 3;
-    public const int Collision = 4;
-    public const int DeltaTime = 5;
-    public const int Globals = 6;
-    public const int Moveable = 7;
-    public const int Move = 8;
-    public const int Moving = 9;
-    public const int Player = 10;
-    public const int PlayerDetails = 11;
-    public const int Position = 12;
-    public const int Rigidbody = 13;
-    public const int View = 14;
+    public const int Ball = 1;
+    public const int Collidable = 2;
+    public const int Collider = 3;
+    public const int Colliding = 4;
+    public const int CollidingWithPlayer = 5;
+    public const int Collision = 6;
+    public const int DeltaTime = 7;
+    public const int Globals = 8;
+    public const int Moveable = 9;
+    public const int Move = 10;
+    public const int Moving = 11;
+    public const int Player = 12;
+    public const int PlayerDetails = 13;
+    public const int Position = 14;
+    public const int Rigidbody = 15;
+    public const int View = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "AddForce",
+        "Ball",
         "Collidable",
         "Collider",
         "Colliding",
+        "CollidingWithPlayer",
         "Collision",
         "DeltaTime",
         "Globals",
@@ -46,9 +50,11 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AddForceComponent),
+        typeof(BallComponent),
         typeof(CollidableComponent),
         typeof(ColliderComponent),
         typeof(CollidingComponent),
+        typeof(CollidingWithPlayerComponent),
         typeof(CollisionComponent),
         typeof(DeltaTimeComponent),
         typeof(GlobalsComponent),

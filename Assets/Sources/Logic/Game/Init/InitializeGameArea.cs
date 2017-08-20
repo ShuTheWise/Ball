@@ -27,6 +27,8 @@ public class InitializeGameArea : IInitializeSystem
         //top and bottom
         Inst(new Vector3(0, yPos, 0), secondScale);
         Inst(new Vector3(0, -yPos, 0), secondScale);
+
+        Physics.gravity = new Vector3(0, -0.9f, 0);
     }
     private void Inst(Vector3 pos, Vector3 scale)
     {

@@ -15,24 +15,29 @@ public class CollisionBehaviour : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //var gr = m_contexts?.game?.GetGroup(GameMatcher.AllOf(GameMatcher.View, GameMatcher.Collidable, GameMatcher.Rigidbody)).GetEntities();
-        //if (gr != null)
-        //{
-        //    foreach (var item in gr)
-        //    {
-        //        if (item.view.value == collision.gameObject)
-        //        {
-        //            item.AddAddForce(m_contexts.game.playerDetails.value.upForce);
-        //           // item.rigidbody.value.AddForce();
-        //        }
-        //    }
-        //}
         if (m_entity != null)
         {
             if (!m_entity.hasCollision) m_entity.AddCollision(collision);
             else m_entity.ReplaceCollision(collision);
             m_entity.isColliding = true;
         }
+
+        var all = m_contexts?.game?.GetGroup(GameMatcher.AllOf(GameMatcher.Collidable, GameMatcher.Rigidbody)).GetEntities();
+        if (all != null)
+        {
+            foreach (var rb in all)
+            {
+                if (rb.view.value == collision.gameObject)
+                {
+                    rb.isColliding = true;
+                    if (gameObject.CompareTag("Player"))
+                    {
+                        rb.isCollidingWithPlayer = true;
+                    }
+                }
+            }
+        }
+
     }
     private void OnCollisionExit(Collision collision)
     {

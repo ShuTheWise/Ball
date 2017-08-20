@@ -12,7 +12,7 @@ public class InitializeBall : IInitializeSystem
     public void Initialize()
     {
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 1; i++)
         {
             UnityEngine.Debug.Log($"Starting a {nameof(InitializeBall)}");
             var g = GameObject.Instantiate(m_contexts.game.globals.value.ballPrefab);//, Vector3., Quaternion.identity);
@@ -20,9 +20,13 @@ public class InitializeBall : IInitializeSystem
             g.tag = "Ball";
             var ent = m_contexts.game.CreateEntity();
             ent.AddPosition(new Vector3(i, 4, 0));
-            ent.AddRigidbody(g.GetComponent<Rigidbody>());
+            var rb = g.GetComponent<Rigidbody>();
+          //  rb.angularDrag = .5f;
+
+            ent.AddRigidbody(rb);
             ent.AddCollider(g.GetComponent<Collider>());
             ent.isCollidable = true;
+            ent.isBall = true;
             ent.AddView(g);
         }
     }

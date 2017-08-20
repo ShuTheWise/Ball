@@ -8,4 +8,5 @@ public class Globals : ScriptableObject
     public Vector3 gameArea;
     public Material frameMaterial;
     public float frameThickness;
+    public float gravity;
 }
